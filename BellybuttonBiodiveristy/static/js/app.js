@@ -20,6 +20,29 @@ function dropDown(sampleData){
        
 
         
+// function optionChanged(selected) {
+//     buildBar(selected);
+//     buildTable(selected);
+// };
+
+// function buildBar(sampleID){
+//     d3.json(file_path).then(function(data){
+//         var samples=data['samples'];
+// //         var selectedSameple = samples.filter(smaple =>)
+
+    
+// })
+// };
+
+// d3.json(file_path).then(function(data) {
+//     var otu_ids = data.samples.map(d => d.otu_ids[0]);
+//     var sample_values = data.samples.map(d => d.sample_values[0]);
+//     var otu_labels = data.samples.map(d => d.otu_labels[0]);
+//     // console.log('otu_ids', otu_ids);
+//     // console.log('sample_values', sample_values);
+//     // console.log('otu_labels', otu_labels);
+//     console.log(otu_ids);
+// });
 
 
 

@@ -13,8 +13,13 @@ function dropDown(sampleData){
         newOption.text(name);
         newOption.property('value', name);
     });
+    var sample1 = sampleData[0];
+    buildChart(sample1);
 };
 
+       
+
+        
 // function optionChanged(selected) {
 //     buildBar(selected);
 //     buildTable(selected);
@@ -29,61 +34,51 @@ function dropDown(sampleData){
 // })
 // };
 
-
-d3.json(file_path).then(function(data) {
-  var data = data.samples
-  console.log(data);
-
-  // var x_value = data.sample_values;
-  // var y_value = data.otu_ids;
-  
-  // var trace1 = {
-  //     type: 'bar',
-  //     x: x_value,
-  //     y: y_value,
-  //     orientation:'h'
-  // };
-
-  // var trace1 = [trace1];
-  // var layout = {
-  //     title: "OTU"
-  // };
-
-  // Plotly.newPlot("bar", trace1, layout)
-});
-
-
-
-
-
-
-
 // d3.json(file_path).then(function(data) {
-//     var x_value = data.sample_values;
-//     var y_value = data.otu_ids;
-    
-//     var trace1 = {
-//         type: 'bar',
-//         x: x_value,
-//         y: y_value,
-//         orientation:'h'
-//     };
-
-//     var trace1 = [trace1];
-//     var layout = {
-//         title: "OTU"
-//     };
-
-//     Plotly.newPlot("bar", trace1, layout)
+//     var otu_ids = data.samples.map(d => d.otu_ids[0]);
+//     var sample_values = data.samples.map(d => d.sample_values[0]);
+//     var otu_labels = data.samples.map(d => d.otu_labels[0]);
+//     // console.log('otu_ids', otu_ids);
+//     // console.log('sample_values', sample_values);
+//     // console.log('otu_labels', otu_labels);
+//     console.log(otu_ids);
 // });
 
 
+
 d3.json(file_path).then(function(data) {
-    var xvalue = data.otu_ids;
-    var yvalue = data.sample_values;
-    var marker_size = data.sample_values;
-    var marker_color = data.otu_ids;
-    var text_value = data.otu_labels 
+    var otu_ids = data.samples.map(d => d.otu_ids[0]);
+    var sample_values = data.samples.map(d => d.sample_values[0]); 
+  
+    var x_value = sample_values;
+    var y_value = otu_ids;
+
+    var trace1 = {
+        type: 'bar',
+        x: x_value,
+        y: y_value,
+        orientation:'h'
+    };
+
+    var trace1 = [trace1];
+    var layout = {
+        title: "OTU"
+    };
+
+    Plotly.newPlot("bar", trace1, layout)
+});
+
+
+d3.json(file_path).then(function(data) {
+    var otu_ids = data.samples.map(d => d.otu_ids[0]);
+    var sample_values = data.samples.map(d => d.sample_values[0]);
+    var otu_labels = data.samples.map(d => d.otu_labels[0]);
+
+    var xvalue = otu_ids;
+    var yvalue = sample_values;
+    var marker_size = sample_values;
+    var marker_color = otu_ids;
+    var text_value = otu_labels 
 
     var trace1 = {
       x: xvalue,
